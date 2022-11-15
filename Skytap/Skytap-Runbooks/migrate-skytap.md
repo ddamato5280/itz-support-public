@@ -1,22 +1,10 @@
-# Migrate a Skytap environment to VMware in Techzone
+# Migrate to VMware in Techzone from Aspera
 
 This will guide you through the steps to migrate your Skytap environments to the VMware on IBM Cloud infrastructure.
 
-1. Create a support request to export Skytap environment via Slack #ITZ-TECHZONE-SUPPORT or https://techzone.ibm.com/help
+1. Request to access to private channel #skytap-migration-support for  migration inquiries via Slack #ITZ-TECHZONE-SUPPORT or https://techzone.ibm.com/help
 
-- You will need to provide the template id from your Techzone collection (just one region is fine):
-![find template](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate1.png)
-
-- Your email request from https://techzone.ibm.com/help will look like:
-![email support](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate2.png)
-
-Support will give you an FTP link and the Network information from your environment.  
-![ftp link](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate3.png)
-You will use the network information when you catalog your new VMware environment in Techzone at the end.
-![ftp link](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate4.png)
-
-
-2. Make reservations for Template Builder, and IBM Cloud Object Storage from https://techzone.ibm.com/collection/skytap-migration
+2. In Techzone, make reservations for Template Builder, and IBM Cloud Object Storage from https://techzone.ibm.com/collection/skytap-migration
 - If your Template Builder reservation expires you lose everything except what you upload to COS!!!
 - If you don't have access to this Collection, request it from Support.
 
@@ -38,9 +26,11 @@ Best to use Chrome for clipboard access, or if you are using Firefox and unable 
 - Use the link provided by support and paste it into Filezilla within the Template Builder VM.
 ![migrate11b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate11b.png)
 - Download the VM to the /home/techzone folder.
-- Once downloaded you can extract the VM by double clicking it in the Files application.
-![migrate12b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate12b.png)
-- You will need to wait until the .vmx file shows up and this could take a long time since the unzip process runs in the background.
+- Once downloaded you can extract the using 
+- '''yum -y install p7zip'''
+- and 
+- '''7za e <archive name>'''
+- Wait 10 min or over an hour, until the .vmx file extracts.
 
 5. Edit the .vmx, remove floppy, and set power options to “soft”
 ![migrate14b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate14b.png)

@@ -2,7 +2,7 @@
 
 This will guide you through the steps to migrate your Skytap environments to the VMware on IBM Cloud infrastructure.
 
-## 1. Request access to private channel #skytap-migration-support for migration inquiries via Slack #ITZ-TECHZONE-SUPPORT or https://techzone.ibm.com/help
+### 1. Request access to private channel #skytap-migration-support for migration inquiries via Slack #ITZ-TECHZONE-SUPPORT or https://techzone.ibm.com/help
 
 ## 2. Make a reservations for Template Builder in Techzone and optionally IBM Cloud Object Storage from https://techzone.ibm.com/collection/skytap-migration
 - If your Template Builder reservation expires you lose everything except what you upload to COS!!! You must confirm that your File location on Aspera is secure if you choose to skip this step. 

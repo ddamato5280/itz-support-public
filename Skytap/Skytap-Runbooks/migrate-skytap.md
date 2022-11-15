@@ -14,7 +14,7 @@ This will guide you through the steps to migrate your Skytap environments to the
 ![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate6.png)
 - Use the URL at top of Template Builder reservation to connect to the Template Builder VM. 
 
-3. From within Template Builder VM
+3. From within Template Builder RHEL VM
 
 - The vSphere console login information is at the bottom of the reservation details.
 ![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate7.png)
@@ -22,9 +22,10 @@ This will guide you through the steps to migrate your Skytap environments to the
 `Open Chrome and use credentials for vSphere found at bottom of Template Builder reservation.
 Best to use Chrome for clipboard access, or if you are using Firefox and unable to copy/paste in Remote Desktop Web Client, please enable clipboard See https://sudoedit.com/firefox-async-clipboard/.` 
 
-4. Download exported VM
-- Use the link provided by support and paste it into Filezilla within the Template Builder VM.
-![migrate11b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate11b.png)
+4. Download exported VM from your Aspera environment
+- If the Template Builder already has Aspera installed, you will not see the following screen. Install Aspera if not. 
+- ![install-aspera](https://user-images.githubusercontent.com/18425410/201855212-c4c8a934-4d37-4bdb-a722-cc96f2bc2c00.jpg)
+
 - Download the VM to the /home/techzone folder.
 - Once downloaded you can extract the using 
 - '''yum -y install p7zip'''
@@ -47,7 +48,7 @@ ovftool session.vmx mynewvm.ova
 ```
 ![migrate14](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate14.png)
 
-7. Backup your environment.   Upload to Cloud Object Storage
+7. *** Optional assuming your Aspera files are protected *** Backup your environment.   Upload to Cloud Object Storage
 
 `Assuming you made a reservation for Cloud Object Storage, and accepted the invite to the ITZ-TECH account.`
 
@@ -59,18 +60,22 @@ Put images in the skytap-exports bucket.
 
 8. Open Chrome, log into vSphere using the credentials at the bottom of your Template Builder reservation.  Create folder in vSphere under templates-shared.  
 
-9. Right click to Deploy OVF.
+9. Right click to Deploy OVF and select the *.ova file that you created in step #6
 ![migrate17](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate17.png)
+- For "Select a name and folder" be consistent with the other resources you selected in under templates-shared
 ![migrate19](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate19.png)
-- Select your default compute resource:
+- Select the gym member default compute resource:
 ![migrate20](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate20.png)
+- Click next on Review Details
 - Select the storage "datastore-shared":
 ![migrate21](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate21.png)
 - Select the network "gym-segment-shared":
 ![migrate22](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate22.png)
-- Finish
+- Click Finish
 ![migrate23](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate23.png)
 ![migrate24](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate24.png)
+- Wait for recent tasks to complete before proceeding to the next step
+![recent-tasks](https://user-images.githubusercontent.com/18425410/201935029-73647d6d-4554-4c5f-b6ca-da16feaa4d04.jpg)
 
 10. Upgrade vSphere compatibility
 ![migrate25](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate25.png)

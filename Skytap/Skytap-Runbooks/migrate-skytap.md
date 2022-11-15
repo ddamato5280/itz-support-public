@@ -46,9 +46,9 @@ ovftool session.vmx mynewvm.ova
 
 ### 7. **Optional** *assuming your Aspera files are not protected* backup your environment by uploading to Cloud Object Storage
 - Using the Cloud Object Storage environment reserved in Step 1, log into cloud.ibm.com, navigate to Storage under resources and open the dte-cos instance.
-  ![migrate15](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate15.png)
+- ![migrate15](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate15.png)
 - Put images in the skytap-exports bucket.
-  ![migrate16](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate16.png)
+- ![migrate16](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate16.png)
 
 ### 8. Log into vSphere in Chrome using the credentials at the bottom of the Template Builder reservation.  Find a relevant or create folder in vSphere under templates-shared.  
 

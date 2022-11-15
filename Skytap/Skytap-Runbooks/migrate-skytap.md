@@ -6,11 +6,10 @@ This will guide you through the steps to migrate your Skytap environments to the
 
 ### 2. Make a reservations for Template Builder in Techzone and optionally IBM Cloud Object Storage from https://techzone.ibm.com/collection/skytap-migration
 - If your Template Builder reservation expires you lose everything except what you upload to COS!!! You must confirm that your File location on Aspera is secure if you choose to skip this step. 
-- If you don't have access to this Collection, request it from Support.
-![migrate5](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate5.png)
-
+- If you don't have access to this Collection, request it from Support. 
+- ![migrate5](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate5.png)
 - Your reservation details will be something like:
-![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate6.png) 
+- ![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate6.png) 
 
 ### 3. Use the URL at top of Template Builder reservation to connect to the Template Builder VM
 - Use the vSphere console login information at the bottom of the reservation details from within Template Builder RHEL VM

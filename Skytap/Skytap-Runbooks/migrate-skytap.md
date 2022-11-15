@@ -13,32 +13,35 @@ This will guide you through the steps to migrate your Skytap environments to the
 
 ### 3. Use the URL at top of Template Builder reservation to connect to the Template Builder VM
 - Use the vSphere console login information at the bottom of the reservation details from within Template Builder RHEL VM
-![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate7.png)
-
-`Open Chrome and use credentials for vSphere found at bottom of Template Builder reservation.
-Best to use Chrome for clipboard access, or if you are using Firefox and unable to copy/paste in Remote Desktop Web Client, please enable clipboard See https://sudoedit.com/firefox-async-clipboard/.` 
+- ![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate7.png)
+- Open Chrome and use credentials for vSphere found at bottom of Template Builder reservation.
+- Best to use Chrome for clipboard access, or if you are using Firefox and unable to copy/paste in Remote Desktop Web Client, please enable clipboard See https://sudoedit.com/firefox-async-clipboard/.` 
 
 ### 4. Download the target VM from your Aspera environment to your Template Builder
 - Install Aspera in your Template Builder image if Aspera is not installed. You will see the following image when you visit the IBM Aspera site when it is not installed.
 - ![install-aspera](https://user-images.githubusercontent.com/18425410/201855212-c4c8a934-4d37-4bdb-a722-cc96f2bc2c00.jpg)
 - Download the VM to the /home/techzone folder.
 - Once downloaded you can extract the using 
-- '''yum -y install p7zip'''
-- and 
-- '''7za e <archive name>'''
+'''
+yum -y install p7zip
+'''
+and 
+'''
+7za e <archive name>
+'''
 - Wait 10 min or over an hour, until the .vmx file extracts.
 
 ### 5. Edit the .vmx, remove floppy, and set power options to “soft” (depending on the errors you get when running the ovftool, you may need to remove other references)
-![migrate14b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate14b.png)
-![migrate13](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate13.png)
-![migrate12](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate12.png)
+- ![migrate14b](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate14b.png)
+- ![migrate13](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate13.png)
+- ![migrate12](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate12.png)
 
 ### 6. Convert VM to OVA.  
 - Run a Terminal window
-'''
+```
 cd ~
 ovftool session.vmx mynewvm.ova
-'''
+```
   ![migrate14](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate14.png)
 
 ### 7. **Optional** *assuming your Aspera files are not protected* backup your environment by uploading to Cloud Object Storage

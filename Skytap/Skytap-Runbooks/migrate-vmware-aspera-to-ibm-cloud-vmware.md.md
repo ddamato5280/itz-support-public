@@ -6,7 +6,7 @@ This page contains the steps to migrate a VMware image from Aspera to the VMware
 
 ### 2. Make a reservations for Template Builder RHEL Bastion VM in Techzone and optionally IBM Cloud Object Storage from https://techzone.ibm.com/collection/skytap-migration
 - If the Template Builder reservation expires, everything is lost except what is uploaded to COS!!! Confirm that the VMware Files on Aspera is secure when skipping this step. 
-- Request access to [skytap-migration collection]([skytap-migratio](https://techzone.ibm.com/collection/skytap-migration) from Support. 
+- Request access to [TechZone's skytap-migration collection](https://techzone.ibm.com/collection/skytap-migration) from Support. 
 - ![migrate5](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate5.png)
 - Your reservation details will be something like:
 - ![migrate7](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate6.png) 
@@ -73,15 +73,24 @@ ovftool session.vmx mynewvm.ova
 - ![recent-tasks](https://user-images.githubusercontent.com/18425410/201935029-73647d6d-4554-4c5f-b6ca-da16feaa4d04.jpg)
 
 ### 10. Upgrade vSphere compatibility
+- On the uploaded OVA file actions menu, select Compatibility and then Upgrade VM Compatibility
 - ![migrate25](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate25.png)
+- Configure for compatibility as seen below
 - ![migrate26](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate26.png)
 
 ### 11. Clone to Template
+- Right click on the uploaded OVA file and select Clone to Template
 - ![migrate27](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate27.png)
+- Select a name and folder for the template.
+- ![clone-machine-to-template](https://user-images.githubusercontent.com/18425410/202279921-557b8503-e883-4d48-bd74-2867a0190db8.jpg)
+- Select the default compute resource
+- Select datastore-share for storage
 - ![migrate28](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate28.png)
+- Click finish
+- ![clone-machine-to-template-4](https://user-images.githubusercontent.com/18425410/202280977-981bf5a7-2e49-463b-a373-58ec4f224273.jpg)
+
 
 ### 12. Create Techzone environment in https://techzone.ibm.com/collection/skytap-test
-- ![migrate36](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate36.png)
 
 Variables required
 - vm_template_folder

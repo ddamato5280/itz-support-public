@@ -52,7 +52,7 @@ ovftool session.vmx mynewvm.ova
 - ![migrate16](https://github.com/IBM/itz-support-public/blob/main/Skytap/Skytap-Runbooks/Images/skytapmigrate16.png)
 
 ### 8. Log into vSphere in Chrome using the credentials at the bottom of the Template Builder reservation.  
-- Find a relevant folder or create a folder in vSphere under templates-shared where the OVA file can be uploaded into.   
+- Find a relevant folder or create a folder in vSphere under `templates-shared` where the OVA file can be uploaded into.   
 
 ### 9. Upload the OVA File VM to vSphere 
 - Right click to Deploy OVF and select the OVA file file created in step #6
@@ -90,20 +90,32 @@ ovftool session.vmx mynewvm.ova
 - ![clone-machine-to-template-4](https://user-images.githubusercontent.com/18425410/202280977-981bf5a7-2e49-463b-a373-58ec4f224273.jpg)
 
 
-### 12. Create Techzone environment in https://techzone.ibm.com/collection/skytap-test
-
-Variables required
-- vm_template_folder
-- vm_template_id
-- vm_map_string
-- vm_domain
-- vm_router_ip
-- vm_subnet
+### 12. Create Techzone environment in a collection
+- In TechZone, click on Share your content
+- ![tz-share-your-content](https://user-images.githubusercontent.com/18425410/202511281-e20ad4f5-146d-4dbc-bc85-1057115cf195.jpg)
+- Scroll down the page and click on Add an environnment
+- ![environment](https://user-images.githubusercontent.com/18425410/202511571-4ceea114-f99d-44d9-94e8-f2a1efd52ca9.jpg)
+- Select IBM Cloud for Infrastructure and vmware-template for Gitops Pattern. Also, fill out Title and Description
+- ![environment-infr-gitops](https://user-images.githubusercontent.com/18425410/202512561-cb3e2243-d069-41e8-bc76-6f629d51d13d.jpg)
+- In settings pick `itzvmware` for Account Pool and Cloud Account. As the techzone team in `#ITZ-TECHZONE-SUPPORT` which Geo, Region, and Datacenter and click the + sign to add the target data center option
+- ![environment-settings](https://user-images.githubusercontent.com/18425410/202514310-289106d0-3d3a-4dba-85c1-ce9e8909af14.jpg)
+- Populate the **Terraform Variables Overrinding** as follows
+  - `vm_domain` - unless otherwise specifice by Tech Zone support - `ibmdte.net`
+  - `vm_router_ip` - unless otherwise specifice by Tech Zone support - ``
+  - `vm_subnet` - unless otherwise specifice by Tech Zone support -  ``
+  - `vm_template_folder` - the `templates-shared` picked in Step #9 above
+  - `vm_template_id` - the relevant folder or created a folder in Step #9 above as seen in example below
+  - ![env-terraform-vars](https://user-images.githubusercontent.com/18425410/202517636-3f41b73e-cbf6-40dd-aa2e-1d7dce65c660.jpg)
+  - `vm_map_string` - each VM in the folllwing json will get started as described
+  - ![env-terraform-var-map-string](https://user-images.githubusercontent.com/18425410/202518864-fd322a62-1942-459b-9154-aa3727d88a6b.jpg)
+  - Click Save to close the environment dialog
 
 ### 13. Test reservation
+- Save the collection with Collection Status as Draft, click on Reserve in the Environment section, and confirm that it runs as expected
+- ![environment-reserve](https://user-images.githubusercontent.com/18425410/202519758-eb52e5bb-c663-452c-9484-f360e6c1ee7f.jpg)
+- Add collaborators using their emails and ask them to Reserve an Environment to confirm that it runs as expected for them too. They will be able to see the Preview page when they are added in as collaborators
+![test](https://user-images.githubusercontent.com/18425410/202519399-76666221-2275-43ff-95b5-2d675d6847cf.jpg)
 
 ### 14. Production rollout
-- Support request to template VM to production
-- Infrastructure admin to template and provide env details
-
+- Work with `#ITZ-TECHZONE-SUPPORT` to confirm that the environment is ready for production before changing the status to Active. Once it is active, everyone will be able to see it and use it. 
 

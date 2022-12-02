@@ -117,5 +117,6 @@ ovftool session.vmx mynewvm.ova
 ![test](https://user-images.githubusercontent.com/18425410/202519399-76666221-2275-43ff-95b5-2d675d6847cf.jpg)
 
 ### 14. Production rollout
-- Work with `#ITZ-TECHZONE-SUPPORT` to confirm that the environment is ready for production before changing the status to Active. Once it is active, everyone will be able to see it and use it. 
+- For Production rollout your VM folder (vm_template_id) in "template-shared" needs to be copied to "templates" (production folder). This can only be completed by admins
+- Therefore, work with `#ITZ-TECHZONE-SUPPORT` to confirm that the environment is ready for production before changing the status to Active. Once it is active, everyone will be able to see it and use it. 
 
